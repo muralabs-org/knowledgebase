@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Support for a module
+    url: https://docs.muralabs.org/support/contact/
+    about: A problem with a module itself, not with a page, goes to support.

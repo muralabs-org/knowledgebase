@@ -1,0 +1,26 @@
+# The form behind the bug icon at the top of every page of docs.muralabs.org. The icon fills in
+# the title and the page address.
+name: Problem on a page
+description: Something on docs.muralabs.org is wrong, unclear or missing.
+title: "Problem on page: "
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      description: The address of the page. Filled in when you come from the page's bug icon.
+      placeholder: https://docs.muralabs.org/...
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong
+      description: What the page says, what you expected instead, and how you know.
+    validations:
+      required: true
+  - type: input
+    id: setup
+    attributes:
+      label: Board and firmware, if it matters
+      description: "For example: PCB 1.4, firmware 26.10.1, MuraLink 26.10.1. The answer of *IDN? gives the model, the serial number and the firmware version."
