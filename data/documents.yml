@@ -1,0 +1,79 @@
+# The PDF editions of the documentation: the content of this site for the firmware release named by
+# `release`, as documents to read offline or to print. They are kept as Word files outside this
+# repository and brought up to date with the site for a release; nothing is written into them
+# first. The PDF files are assets of the GitHub release `release` in the public repository, like
+# the other downloads (decision D11): upload them there first, then change this file.
+#
+# main.py renders from this file the list in the frame on the home page, the table on the
+# Downloads page and the "Download the PDF ..." line under the applies-to line of every page a
+# document names in `pages`: a page path under docs/, or a folder ending in "/" for every page in
+# it. A page path wins over a folder, a longer folder over a shorter one. `label` is the text of
+# that line's link. tools/check_known_issues.py checks this file before a build.
+
+release: "26.10.1"
+
+documents:
+  - id: datasheet
+    title: "JP150 Datasheet & User Guide"
+    revision: "0.6"
+    date: 2026-11-05
+    file: JP150_Datasheet_26_10_1.pdf
+    size: "8,807,445 B"
+    label: "Download the PDF datasheet"
+    pages:
+      - start/index.md
+      - start/connectors-tour.md
+      - hardware/
+      - operation/
+      - wifi/
+      - bluetooth/connect-a-phone.md
+
+  - id: update
+    title: "JP150 Firmware Update"
+    revision: "2.0"
+    date: 2026-11-05
+    file: JP150_Firmware_Update_v2.0.pdf
+    size: "586,569 B"
+    label: "Download the PDF guide"
+    pages:
+      - updates/
+
+  - id: quick-start
+    title: "JP150 ADAU1452 Quick Start"
+    revision: "1.1"
+    date: 2026-11-05
+    file: JP150_ADAU1452_Quick_Start_v1.1.pdf
+    size: "836,441 B"
+    label: "Download the PDF guide"
+    pages:
+      - dsp/index.md
+      - dsp/quick-start.md
+      - dsp/starter-project.md
+      - dsp/boot-memory.md
+      - dsp/boot-memory-muralink.md
+
+  - id: tws
+    title: "JP150 True Wireless Stereo (TWS) User Guide"
+    revision: "1.1"
+    date: 2026-11-05
+    file: JP150_TWS_User_Guide_v1.1.pdf
+    size: "614,578 B"
+    label: "Download the PDF guide"
+    pages:
+      - bluetooth/index.md
+      - bluetooth/tws-about.md
+      - bluetooth/tws-controls.md
+      - bluetooth/tws-pairing.md
+      - bluetooth/tws-everyday.md
+      - bluetooth/tws-status.md
+      - bluetooth/led-reference.md
+
+  - id: scpi
+    title: "JP150 SCPI Command Reference"
+    revision: "1.2"
+    date: 2026-11-05
+    file: JP150_SCPI_Command_Reference_v1.2.pdf
+    size: "3,975,272 B"
+    label: "Download the PDF reference"
+    pages:
+      - scpi/
