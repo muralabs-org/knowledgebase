@@ -1,0 +1,4861 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Knowledge base of the MURA LABS JP-series amplifier modules.">
+      
+      
+      
+        <link rel="canonical" href="https://docs.muralabs.org/scpi/reference/bt-tws/">
+      
+      
+        <link rel="prev" href="../bt/">
+      
+      
+        <link rel="next" href="../../changes/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>BT:TWS - MURA LABS Knowledge Base</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Inter";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/css/mura.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  <style>
+    html[data-mura-product="JP150"] .mura-f[data-product]:not([data-product~="JP150"]) { display: none !important; }
+    html[data-mura-product="JP150"] .applies[data-product]:not([data-product~="JP150"]) .mura-mismatch { display: block; }
+    html[data-mura-pcb="1.4"] .mura-f[data-pcb]:not([data-pcb~="1.4"]) { display: none !important; }
+    html[data-mura-pcb="1.4"] .applies[data-pcb]:not([data-pcb~="1.4"]) .mura-mismatch { display: block; }
+    html[data-mura-pcb="1.3"] .mura-f[data-pcb]:not([data-pcb~="1.3"]) { display: none !important; }
+    html[data-mura-pcb="1.3"] .applies[data-pcb]:not([data-pcb~="1.3"]) .mura-mismatch { display: block; }
+  </style>
+  <script>
+    window.__mura = {"pages": {"bluetooth/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "bluetooth/connect-a-phone/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "bluetooth/led-reference/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "bluetooth/tws-about/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "bluetooth/tws-controls/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "bluetooth/tws-everyday/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "bluetooth/tws-pairing/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "bluetooth/tws-status/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "dsp/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "dsp/boot-memory-muralink/": {"pcb": ["1.4"], "product": ["JP150"]}, "dsp/boot-memory/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "dsp/ipat/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "dsp/quick-start/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "dsp/starter-project/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "hardware/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "hardware/configuration/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "hardware/connectors/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "hardware/indicators/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "hardware/mechanical/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "hardware/power-levels/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "hardware/safety/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "hardware/specifications/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "muralink/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "muralink/compatibility/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "muralink/install/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "muralink/pages/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "operation/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "operation/auto-power-down/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "operation/inputs/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "operation/multi-module/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "operation/programmer-coexistence/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "operation/settings/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "operation/start-up/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "operation/trigger/": {"pcb": ["1.4"], "product": ["JP150"]}, "operation/volume-encoder/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "releases/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "releases/26.10.1/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "releases/26.11.0/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "releases/26.6.2/": {"pcb": ["1.2", "1.3"], "product": ["JP150"]}, "releases/26.7.0/": {"pcb": ["1.3"], "product": ["JP150"]}, "releases/26.8.0/": {"pcb": ["1.3"], "product": ["JP150"]}, "releases/archive/": {"pcb": [], "product": ["JP150"]}, "releases/downloads/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "releases/known-issues/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "scpi/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "scpi/changes/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "scpi/integration/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "scpi/protocol/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "scpi/reference/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "scpi/reference/amp/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "scpi/reference/bt-tws/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "scpi/reference/bt/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "scpi/reference/common/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "scpi/reference/dsp-flash/": {"pcb": ["1.4"], "product": ["JP150"]}, "scpi/reference/dsp-inputmux/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "scpi/reference/dsp/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "scpi/reference/sys-i2c/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "scpi/reference/sys-ident/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "scpi/reference/sys-input/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "scpi/reference/sys-meas/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "scpi/reference/sys-nvm/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "scpi/reference/sys-power/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "scpi/reference/sys-trig/": {"pcb": ["1.4"], "product": ["JP150"]}, "scpi/reference/wifi/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "start/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "start/check-for-updates/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "start/connectors-tour/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "start/first-power-up/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "start/install-muralink/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "support/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "support/contact/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "support/faq/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "support/glossary/": {"pcb": [], "product": ["JP150"]}, "support/troubleshooting/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "updates/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "updates/how-it-works/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "updates/led-indication/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "updates/muralink/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "updates/recovery/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "wifi/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "wifi/setup/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}, "wifi/spotify/": {"pcb": ["1.3", "1.4"], "product": ["JP150"]}}, "products": [{"boards": ["1.4", "1.3"], "id": "JP150", "name": "JP150"}]};
+    (function () {
+      try {
+        var f = JSON.parse(localStorage.getItem("mura.filter") || "{}") || {}, h = document.documentElement;
+        if (f.product) h.setAttribute("data-mura-product", f.product);
+        if (f.pcb) h.setAttribute("data-mura-pcb", f.pcb);
+      } catch (e) {}
+    })();
+  </script>
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#bluetooth-tws" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="MURA LABS Knowledge Base" class="md-header__button md-logo" aria-label="MURA LABS Knowledge Base" data-md-component="logo">
+      
+  <img src="../../../assets/images/mura-labs-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            MURA LABS Knowledge Base
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              BT:TWS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="mura-filter" data-md-component="mura-filter">
+  <label class="mura-filter__field">
+    <span class="mura-filter__name">Product</span>
+    <select name="product" class="mura-filter__select" aria-label="Product">
+      <option value="">All</option>
+      <option value="JP150">JP150</option>
+    </select>
+  </label>
+  <label class="mura-filter__field">
+    <span class="mura-filter__name">PCB</span>
+    <select name="pcb" class="mura-filter__select" aria-label="PCB revision">
+      <option value="">All</option>
+      <option value="1.4">1.4</option>
+      <option value="1.3">1.3</option>
+    </select>
+  </label>
+</div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/muralabs-org/knowledgebase" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../start/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Start here
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../hardware/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Hardware
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../operation/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Operation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../bluetooth/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Bluetooth
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../wifi/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Wi-Fi
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../dsp/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  DSP
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../updates/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Firmware updates
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../muralink/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  MuraLink
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Control interface
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../releases/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Releases
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../../support/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Support
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="MURA LABS Knowledge Base" class="md-nav__button md-logo" aria-label="MURA LABS Knowledge Base" data-md-component="logo">
+      
+  <img src="../../../assets/images/mura-labs-logo.png" alt="logo">
+
+    </a>
+    MURA LABS Knowledge Base
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/muralabs-org/knowledgebase" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../start/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start here
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Start here
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../start/connectors-tour/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connectors tour
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../start/first-power-up/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    First power-up
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../start/install-muralink/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install MuraLink
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../start/check-for-updates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Check for updates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../hardware/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hardware
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../hardware/specifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Specifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../hardware/connectors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connectors and pinouts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../hardware/indicators/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Indicators and LEDs
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../hardware/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../hardware/power-levels/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Power levels
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../hardware/mechanical/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mechanical
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../hardware/safety/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Safety
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../operation/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operation
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Operation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operation/inputs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inputs and the enable mask
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operation/volume-encoder/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Volume and encoder
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operation/auto-power-down/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Automatic power-down
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operation/trigger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12 V trigger
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operation/start-up/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Start-up and the safe state
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operation/settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Settings and memory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operation/programmer-coexistence/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SigmaStudio programmer coexistence
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../operation/multi-module/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Several modules together
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../bluetooth/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bluetooth
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_5" id="__nav_5_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Bluetooth
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../bluetooth/connect-a-phone/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connect a phone
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../bluetooth/tws-about/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TWS: about and terms
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../bluetooth/tws-controls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TWS: controls in MuraLink
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../bluetooth/tws-pairing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TWS: pairing two units
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../bluetooth/tws-everyday/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TWS: everyday use
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../bluetooth/tws-status/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    TWS: status and troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../bluetooth/led-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LED reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../wifi/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Wi-Fi
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Wi-Fi
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../wifi/setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup with 4STREAM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../wifi/spotify/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Spotify Connect
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../dsp/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DSP
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    DSP
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dsp/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dsp/starter-project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The starter project
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dsp/boot-memory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Writing the boot memory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dsp/boot-memory-muralink/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Boot memory with MuraLink
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../dsp/ipat/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IPAT and parameters
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../updates/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Firmware updates
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_8" id="__nav_8_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Firmware updates
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../updates/how-it-works/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How updates work
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../updates/muralink/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Update with MuraLink
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../updates/led-indication/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    LED indication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../updates/recovery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Recovery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../muralink/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MuraLink
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_9" id="__nav_9_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    MuraLink
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../muralink/install/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../muralink/pages/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pages reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../muralink/compatibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Firmware compatibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Control interface
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10" id="__nav_10_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Control interface
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../protocol/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Protocol
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Command reference
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_10_3" id="__nav_10_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_10_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Command reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../common/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Common
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../amp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AMP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sys-ident/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SYS: identity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sys-input/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SYS:INPUT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sys-meas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SYS:MEAS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sys-power/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SYS:POWER
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sys-trig/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SYS:TRIG
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sys-nvm/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SYS:NVM
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sys-i2c/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    SYS:I2C:GUARD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dsp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DSP
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dsp-flash/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DSP:FLASH
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dsp-inputmux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    DSP:INPUTMUX
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wifi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    WIFI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bt/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BT
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BT:TWS
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BT:TWS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-enabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:ENABLED
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-fallbackrole" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:FALLBACKROLE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:STATE?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:ROLE?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-peer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:PEER?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-bootoutcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:BOOTOUTCOME?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-stat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:STAT?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-pair-start-bt-tws-pair-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:PAIR:START, BT:TWS:PAIR:STATUS?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-pair" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:PAIR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-repair" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:REPAIR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-reboot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:REBOOT
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-conn-bt-tws-disc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:CONN, BT:TWS:DISC
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-bond-del-bt-tws-unpair" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:BOND:DEL, BT:TWS:UNPAIR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-inq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:INQ
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-refresh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:REFRESH
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-peerlist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:PEERLIST?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-scan-bt-tws-scan-count-bt-tws-scan-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:SCAN?, BT:TWS:SCAN:COUNT?, BT:TWS:SCAN:ITEM?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-scan-diag-bt-tws-peerdiag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:SCAN:DIAG?, BT:TWS:PEERDIAG?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changes by release
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Integration notes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../releases/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Releases
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_11" id="__nav_11_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Releases
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../releases/26.11.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26.11.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../releases/26.10.1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26.10.1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../releases/26.8.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26.8.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../releases/26.7.0/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26.7.0
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../releases/26.6.2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    26.6.2
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../releases/known-issues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Known issues
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../releases/downloads/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Downloads
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../releases/archive/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Documents before this site
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_12" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../support/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Support
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_12" id="__nav_12_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_12_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_12">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Support
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../support/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../support/faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../support/glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../support/contact/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contact
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-enabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:ENABLED
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-fallbackrole" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:FALLBACKROLE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:STATE?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-role" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:ROLE?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-peer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:PEER?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-bootoutcome" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:BOOTOUTCOME?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-stat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:STAT?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-pair-start-bt-tws-pair-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:PAIR:START, BT:TWS:PAIR:STATUS?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-pair" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:PAIR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-repair" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:REPAIR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-reboot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:REBOOT
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-conn-bt-tws-disc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:CONN, BT:TWS:DISC
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-bond-del-bt-tws-unpair" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:BOND:DEL, BT:TWS:UNPAIR
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-inq" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:INQ
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-refresh" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:REFRESH
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-peerlist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:PEERLIST?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-scan-bt-tws-scan-count-bt-tws-scan-item" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:SCAN?, BT:TWS:SCAN:COUNT?, BT:TWS:SCAN:ITEM?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bt-tws-scan-diag-bt-tws-peerdiag" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BT:TWS:SCAN:DIAG?, BT:TWS:PEERDIAG?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Changes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href="../../.." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Control interface
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Command reference
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+  
+  <a href="https://github.com/muralabs-org/knowledgebase/issues/new?template=page-problem.yml&title=Problem%20on%20page%3A%20BT%3ATWS&page=https%3A//docs.muralabs.org/scpi/reference/bt-tws/" title="Report a problem with this page" class="md-content__button md-icon" rel="nofollow">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 8h-2.81c-.45-.8-1.07-1.5-1.82-2L17 4.41 15.59 3l-2.17 2.17a6 6 0 0 0-2.83 0L8.41 3 7 4.41 8.62 6c-.75.5-1.36 1.21-1.81 2H4v2h2.09c-.06.33-.09.66-.09 1v1H4v2h2v1c0 .34.03.67.09 1H4v2h2.81A5.99 5.99 0 0 0 15 20.18c.91-.52 1.67-1.28 2.19-2.18H20v-2h-2.09c.06-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.03-.67-.09-1H20zm-4 7a4 4 0 0 1-4 4 4 4 0 0 1-4-4v-4a4 4 0 0 1 4-4 4 4 0 0 1 4 4zm-2-5v2h-4v-2zm-4 4h4v2h-4z"/></svg>
+  </a>
+
+
+<!-- Generated by dsp-amp/tools/scpi_docs.py from firmware 26.11.0. Do not edit: change docs/scpi/commands.yml in the firmware repository and run the generator. -->
+
+<h1 id="bluetooth-tws">Bluetooth: TWS<a class="headerlink" href="#bluetooth-tws" title="Permanent link">&para;</a></h1>
+<p class="applies" data-product="JP150" data-pcb="1.3 1.4"><span class="badge">JP150</span><span class="badge rev">PCB 1.3</span><span class="badge rev">PCB 1.4</span><span class="badge gen" title="Generated from the firmware; report a mistake with the bug icon">generated</span><span class="changed" title="Last change of this page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg><time datetime="2026-11-11">2026-11-11</time><span class="by">Jan Přibyslavský</span></span><span class="mura-mismatch">This page does not apply to the product or PCB revision chosen in the header.</span></p>
+<p class="pdfline"><a href="https://github.com/muralabs-org/knowledgebase/releases/download/26.10.1/JP150_SCPI_Command_Reference_v1.2.pdf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2m-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5zm4-3H17v1h1.5V13H17v2h-1.5V9h3zm-6.5 0h1v3h-1zm-5 0h1v1H7z"/></svg>Download the PDF reference</a><span class="meta">JP150 SCPI Command Reference, revision 1.2 &middot; 4.0 MB</span></p>
+
+<p>True Wireless Stereo: the capability, pairing, the remembered peer, the roles, one answer for
+polling, and diagnostics. The owner's view is in the <a href="../../../bluetooth/tws-about/">Bluetooth section</a>.
+Three different things carry the word role: <code>BT:TWS:FALLBACKROLE</code> is the stored intent for a
+start without a remembered peer, <code>BT:TWS:ROLE?</code> is what the live link negotiated, and
+<code>BT:TWS:BOOTOUTCOME?</code> says what the last start did with the remembered peer. Many answers are
+mirrors of the module's state that the firmware refreshes about every second or two, so a
+change shows with that delay.</p>
+<h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Function</th>
+<th>Parameter</th>
+<th>Answer</th>
+<th>Since</th>
+<th>Boards</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#bt-tws-enabled"><code>BT:TWS:ENABLED?</code></a></td>
+<td>TWS capability of the module</td>
+<td>–</td>
+<td><code>BT:TWS:ENABLED:&lt;0|1&gt;</code></td>
+<td>26.6.2</td>
+<td>1.3, 1.4</td>
+</tr>
+<tr>
+<td><a href="#bt-tws-enabled"><code>BT:TWS:ENABLED</code></a></td>
+<td>Switch the TWS capability on or off</td>
+<td><code>0, 1</code></td>
+<td><em>no answer</em></td>
+<td>26.6.2</td>
+<td>1.3, 1.4</td>
+</tr>
+<tr>
+<td><a href="#bt-tws-fallbackrole"><code>BT:TWS:FALLBACKROLE?</code></a></td>
+<td>Stored role for a start without a remembered peer</td>
+<td>–</td>
+<td><code>BT:TWS:FALLBACKROLE:&lt;Standalone|Primary|Secondary&gt;</code></td>
+<td>26.10.1</td>
+<td>1.3, 1.4</td>
+</tr>
+<tr>
+<td><a href="#bt-tws-fallbackrole"><code>BT:TWS:FALLBACKROLE</code></a></td>
+<td>Set the stored fallback role</td>
+<td><code>0, 1, 2</code></td>
+<td><em>no answer</em></td>
+<td>26.10.1</td>
+<td>1.3, 1.4</td>
+</tr>
+<tr>
+<td><a href="#bt-tws-state"><code>BT:TWS:STATE?</code></a></td>
+<td>Peer-link state</td>
+<td>–</td>
+<td><code>BT:TWS:STATE:&lt;state&gt;</code></td>
+<td>26.6.2</td>
+<td>1.3, 1.4</td>
+</tr>
+<tr>
+<td><a href="#bt-tws-role"><code>BT:TWS:ROLE?</code></a></td>
+<td>Role negotiated by the live link</td>
+<td>–</td>
+<td><code>BT:TWS:ROLE:&lt;Primary|Secondary|Unknown&gt;</code></td>
+<td>26.10.1</td>
+<td>1.3, 1.4</td>
+</tr>
+<tr>
+<td><a href="#bt-tws-peer"><code>BT:TWS:PEER?</code></a></td>
+<td>Address of the remembered peer</td>
+<td>–</td>
+<td><code>BT:TWS:PEER:&lt;12 hex digits&gt;</code></td>
+<td>26.6.2</td>
+<td>1.3, 1.4</td>
+</tr>
+<tr>
+<td><a href="#bt-tws-bootoutcome"><code>BT:TWS:BOOTOUTCOME?</code></a></td>
+<td>What the last start did with the remembered peer</td>
+<td>–</td>
+<td><code>BT:TWS:BOOTOUTCOME:&lt;outcome&gt;</code></td>
+<td>26.10.1</td>
+<td>1.3, 1.4</td>
+</tr>
+<tr>
+<td><a href="#bt-tws-stat"><code>BT:TWS:STAT?</code></a></td>
+<td>The whole TWS state in one numeric answer, for polling</td>
+<td>–</td>
+<td><code>BT:TWS:STAT:&lt;enabled&gt;,&lt;state&gt;,&lt;role&gt;,&lt;mac&gt;,&lt;fallbackrole&gt;,&lt;inq&gt;,&lt;pair&gt;,&lt;kept&gt;,&lt;seen&gt;</code></td>
+<td>26.10.1</td>
+<td>1.3, 1.4</td>
+</tr>
+<tr>
+<td><a href="#bt-tws-pair-start-bt-tws-pair-status"><code>BT:TWS:PAIR:START</code></a></td>
+<td>Start pairing as Primary without blocking the control interface</td>
+<td>–</td>
+<td><code>BT:TWS:PAIR:START:&lt;OK|ERR:PAIRED|ERR:MODULE&gt;</code></td>
+<td>26.10.1</td>
+<td>1.3, 1.4</td>
+</tr>
+<tr>
+<td><a href="#bt-tws-pair-start-bt-tws-pair-status"><code>BT:TWS:PAIR:STATUS?</code></a></td>
+<td>Progress of that pairing</td>
+<td>–</td>
+<td><code>BT:TWS:PAIR:STATUS:&lt;state&gt;</code></td>
+<td>26.10.1</td>
+<td>1.3, 1.4</td>
+</tr>
+<tr>
+<td><a href="#bt-tws-pair"><code>BT:TWS:PAIR</code></a></td>
+<td>Pair as Primary, blocking for up to 15 s</td>
+<td>–</td>
+<td><code>BT:TWS:PAIR:&lt;OK|AlreadyPaired|NoPeerFound|Error&gt;</code></td>
+<td>26.6.2</td>
+<td>1.3, 1.4</td>
+</tr>
+<tr>
+<td><a href="#bt-tws-repair"><code>BT:TWS:REPAIR</code></a></td>
+<td>Forget the peer and pair again in the given role (Start New Pairing)</td>
+<td><code>0, 1, 2</code></td>
+<td><code>BT:TWS:REPAIR:&lt;OK|ERR:PARAM|ERR:NVM|ERR:BUSY&gt;</code></td>
+<td>26.10.1</td>
+<td>1.3, 1.4</td>
+</tr>
+<tr>
+<td><a href="#bt-tws-reboot"><code>BT:TWS:REBOOT</code></a></td>
+<td>Apply a role now; restarts the Bluetooth module</td>
+<td><code>0, 1, 2</code></td>
+<td><code>BT:TWS:REBOOT:&lt;OK|ERR:PARAM|ERR:BUSY&gt;</code></td>
+<td>26.10.1</td>
+<td>1.3, 1.4</td>
+</tr>
+<tr>
+<td><a href="#bt-tws-conn-bt-tws-disc"><code>BT:TWS:CONN</code></a></td>
+<td>Reconnect the remembered peer</td>
+<td>–</td>
+<td><code>BT:TWS:CONN:&lt;OK|ERR:DISABLED|ERR:PAIRED|ERR:NOPEER|ERR:MODULE&gt;</code></td>
+<td>26.10.1</td>
+<td>1.3, 1.4</td>
+</tr>
+<tr>
+<td><a href="#bt-tws-conn-bt-tws-disc"><code>BT:TWS:DISC</code></a></td>
+<td>Disconnect the peer and keep the pairing</td>
+<td>–</td>
+<td><code>BT:TWS:DISC:&lt;OK|ERR:MODULE&gt;</code></td>
+<td>26.10.1</td>
+<td>1.3, 1.4</td>
+</tr>
+<tr>
+<td><a href="#bt-tws-bond-del-bt-tws-unpair"><code>BT:TWS:BOND:DEL</code></a></td>
+<td>Forget the peer without disconnecting</td>
+<td>–</td>
+<td><code>BT:TWS:BOND:DEL:&lt;OK|ERR:MODULE&gt;</code></td>
+<td>26.10.1</td>
+<td>1.3, 1.4</td>
+</tr>
+<tr>
+<td><a href="#bt-tws-bond-del-bt-tws-unpair"><code>BT:TWS:UNPAIR</code></a></td>
+<td>Disconnect and forget the peer</td>
+<td>–</td>
+<td><code>BT:TWS:UNPAIR:&lt;OK|ERR:MODULE&gt;</code></td>
+<td>26.6.2</td>
+<td>1.3, 1.4</td>
+</tr>
+<tr>
+<td><a href="#bt-tws-inq"><code>BT:TWS:INQ?</code></a></td>
+<td>Whether a peer search runs</td>
+<td>–</td>
+<td><code>BT:TWS:INQ:&lt;0|1&gt;</code></td>
+<td>26.10.1</td>
+<td>1.3, 1.4</td>
+</tr>
+<tr>
+<td><a href="#bt-tws-inq"><code>BT:TWS:INQ</code></a></td>
+<td>Start or stop the peer search</td>
+<td><code>0, 1</code></td>
+<td><code>BT:TWS:INQ:&lt;OK|ERR:PARAM|ERR:MODULE&gt;</code></td>
+<td>26.10.1</td>
+<td>1.3, 1.4</td>
+</tr>
+<tr>
+<td><a href="#bt-tws-refresh"><code>BT:TWS:REFRESH</code></a></td>
+<td>Re-read the TWS state from the module</td>
+<td>–</td>
+<td><code>BT:TWS:REFRESH:&lt;OK|ERR:MODULE&gt;</code></td>
+<td>26.10.1</td>
+<td>1.3, 1.4</td>
+</tr>
+<tr>
+<td><a href="#bt-tws-peerlist"><code>BT:TWS:PEERLIST?</code></a></td>
+<td>The module's remembered devices, phones and the TWS peer</td>
+<td>–</td>
+<td><code>BT:TWS:PEERLIST:&lt;count&gt;[;&lt;index&gt;,&lt;mac&gt;,&lt;istws&gt;,&lt;name&gt;...]</code></td>
+<td>26.10.1</td>
+<td>1.3, 1.4</td>
+</tr>
+<tr>
+<td><a href="#bt-tws-scan-bt-tws-scan-count-bt-tws-scan-item"><code>BT:TWS:SCAN?</code></a></td>
+<td>Peers found by the last search</td>
+<td>–</td>
+<td><code>BT:TWS:SCAN:&lt;count&gt;[;&lt;mac&gt;,&lt;rssi&gt;,&lt;type&gt;,&lt;name&gt;...]</code></td>
+<td>26.6.2</td>
+<td>1.3, 1.4</td>
+</tr>
+<tr>
+<td><a href="#bt-tws-scan-bt-tws-scan-count-bt-tws-scan-item"><code>BT:TWS:SCAN:COUNT?</code></a></td>
+<td>Entries kept and seen in the last search</td>
+<td>–</td>
+<td><code>BT:TWS:SCAN:COUNT:&lt;kept&gt;,&lt;seen&gt;</code></td>
+<td>26.10.1</td>
+<td>1.3, 1.4</td>
+</tr>
+<tr>
+<td><a href="#bt-tws-scan-bt-tws-scan-count-bt-tws-scan-item"><code>BT:TWS:SCAN:ITEM?</code></a></td>
+<td>One entry of the last search</td>
+<td><code>&lt;index&gt;</code></td>
+<td><code>BT:TWS:SCAN:ITEM:&lt;mac&gt;,&lt;rssi&gt;,&lt;type&gt;,&lt;name&gt;,&lt;f1&gt;,&lt;f2&gt;</code></td>
+<td>26.10.1</td>
+<td>1.3, 1.4</td>
+</tr>
+<tr>
+<td><a href="#bt-tws-scan-diag-bt-tws-peerdiag"><code>BT:TWS:SCAN:DIAG?</code></a></td>
+<td>Diagnostics of the search-result parser</td>
+<td>–</td>
+<td><code>BT:TWS:SCAN:DIAG:&lt;lines&gt;,&lt;parsed&gt;,&lt;kept&gt;,&lt;rc&gt;,&lt;legacyrc&gt;,&lt;rawlen&gt;,&lt;rawhex&gt;</code></td>
+<td>26.10.1</td>
+<td>1.3, 1.4</td>
+</tr>
+<tr>
+<td><a href="#bt-tws-scan-diag-bt-tws-peerdiag"><code>BT:TWS:PEERDIAG?</code></a></td>
+<td>Diagnostics of the peer-record parser</td>
+<td>–</td>
+<td><code>BT:TWS:PEERDIAG:&lt;lines&gt;,&lt;rc&gt;,&lt;rawlen&gt;,&lt;rawhex&gt;</code></td>
+<td>26.10.1</td>
+<td>1.3, 1.4</td>
+</tr>
+</tbody>
+</table>
+<p><em>Since</em> is the release the command appeared in; 26.6.2 is the oldest release documented here, so a command marked 26.6.2 may be older.</p>
+<h2 id="bt-tws-enabled"><code>BT:TWS:ENABLED</code><a class="headerlink" href="#bt-tws-enabled" title="Permanent link">&para;</a></h2>
+<p>Commands: <code>BT:TWS:ENABLED?</code>, <code>BT:TWS:ENABLED</code></p>
+<p>The module stores the capability itself, so it survives power cycles. Switching it off tears
+down a peer link; the peer-link state then reads <code>Standby</code> and the remembered peer is kept. A
+value above 1 is an SCPI error. The pairing commands switch the capability on when needed.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>BT:TWS:ENABLED?  -&gt;  BT:TWS:ENABLED:1
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>BT:TWS:ENABLED 1
+</code></pre></div>
+<h2 id="bt-tws-fallbackrole"><code>BT:TWS:FALLBACKROLE</code><a class="headerlink" href="#bt-tws-fallbackrole" title="Permanent link">&para;</a></h2>
+<p>Commands: <code>BT:TWS:FALLBACKROLE?</code>, <code>BT:TWS:FALLBACKROLE</code></p>
+<p>Consulted at start only when no peer is remembered; a remembered peer is reconnected instead.
+Changing it does not change the current session: <code>BT:TWS:REBOOT</code> applies a role now, and
+<code>BT:TWS:REPAIR</code> sets and applies one in one step. An out-of-range value is an SCPI error. A
+stored setting (autosave after 1 s). Replaces <code>BT:BOOTROLE</code>, whose query answered <code>Master</code> and
+<code>Slave</code>.</p>
+<p>Default: <code>1</code>.</p>
+<p><strong>Fallback roles</strong></p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0</code></td>
+<td>Standalone, no TWS; the module behaves as a single Bluetooth speaker</td>
+</tr>
+<tr>
+<td><code>1</code></td>
+<td>Primary; searches for a peer when none is remembered at start</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td>Secondary; waits to be found by a Primary</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>BT:TWS:FALLBACKROLE?  -&gt;  BT:TWS:FALLBACKROLE:Primary
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>BT:TWS:FALLBACKROLE 1
+</code></pre></div>
+<h2 id="bt-tws-state"><code>BT:TWS:STATE?</code><a class="headerlink" href="#bt-tws-state" title="Permanent link">&para;</a></h2>
+<p>A mirror refreshed about every 2 s while the capability is on.</p>
+<p><strong>Peer-link states</strong></p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Unsupported</code></td>
+<td>The module does not report a peer link</td>
+</tr>
+<tr>
+<td><code>Standby</code></td>
+<td>No peer link; also the reading while the TWS capability is off</td>
+</tr>
+<tr>
+<td><code>Connecting</code></td>
+<td>A peer link is being set up</td>
+</tr>
+<tr>
+<td><code>Connected</code></td>
+<td>The peer link is up</td>
+</tr>
+<tr>
+<td><code>Streaming</code></td>
+<td>Audio flows over the peer link</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>BT:TWS:STATE?  -&gt;  BT:TWS:STATE:Connected
+</code></pre></div>
+<h2 id="bt-tws-role"><code>BT:TWS:ROLE?</code><a class="headerlink" href="#bt-tws-role" title="Permanent link">&para;</a></h2>
+<p><code>Unknown</code> until the module has reported its peer record once, and after the pairing was
+deleted. Distinct from <code>BT:TWS:FALLBACKROLE?</code>, the stored intent for the next start.</p>
+<p><strong>Live roles</strong></p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Primary</code></td>
+<td>This unit drives the pair</td>
+</tr>
+<tr>
+<td><code>Secondary</code></td>
+<td>This unit follows the pair</td>
+</tr>
+<tr>
+<td><code>Unknown</code></td>
+<td>No peer record has been read yet, or the pairing was deleted</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>BT:TWS:ROLE?  -&gt;  BT:TWS:ROLE:Primary
+</code></pre></div>
+<h2 id="bt-tws-peer"><code>BT:TWS:PEER?</code><a class="headerlink" href="#bt-tws-peer" title="Permanent link">&para;</a></h2>
+<p><code>000000000000</code> when no peer is remembered.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>BT:TWS:PEER?  -&gt;  BT:TWS:PEER:4142DE0BCDAC
+</code></pre></div>
+<h2 id="bt-tws-bootoutcome"><code>BT:TWS:BOOTOUTCOME?</code><a class="headerlink" href="#bt-tws-bootoutcome" title="Permanent link">&para;</a></h2>
+<p>Settles once shortly after start, so it belongs on a slow poll. <code>PeerUnreachable</code> is the one
+worth showing: a peer is remembered but did not answer, so the unit plays alone and keeps
+doing so until the peer returns or the pair is made again (<code>BT:TWS:REPAIR</code>); without this
+answer that state looks like never paired.</p>
+<p><strong>Start outcomes</strong></p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Pending</code></td>
+<td>The start-up resolution has not finished yet</td>
+</tr>
+<tr>
+<td><code>NoPeer</code></td>
+<td>No peer was remembered; the fallback role applied</td>
+</tr>
+<tr>
+<td><code>Reconnected</code></td>
+<td>The remembered peer answered and the pair is up</td>
+</tr>
+<tr>
+<td><code>PeerUnreachable</code></td>
+<td>A peer is remembered but did not answer; the unit plays alone until the peer returns or it is paired again</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>BT:TWS:BOOTOUTCOME?  -&gt;  BT:TWS:BOOTOUTCOME:Reconnected
+</code></pre></div>
+<h2 id="bt-tws-stat"><code>BT:TWS:STAT?</code><a class="headerlink" href="#bt-tws-stat" title="Permanent link">&para;</a></h2>
+<p>All fields numeric: <code>enabled</code> 0/1; <code>state</code> 0 Unsupported, 1 Standby, 2 Connecting,
+3 Connected, 4 Streaming; <code>role</code> 0 Secondary, 1 Primary, 2 Unknown; <code>mac</code> the remembered peer
+or <code>-</code>; <code>fallbackrole</code> 0 to 2; <code>inq</code> 0/1 whether a search runs; <code>pair</code> 0 Idle, 1 Inquiring,
+2 OK, 3 NoPeerFound, 4 Error; <code>kept</code> and <code>seen</code> as <code>BT:TWS:SCAN:COUNT?</code>. A read of the
+firmware's mirror, no traffic to the module: the one query to poll instead of five.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>BT:TWS:STAT?  -&gt;  BT:TWS:STAT:1,3,1,4142DE0BCDAC,1,0,2,2,2
+</code></pre></div>
+<h2 id="bt-tws-pair-start-bt-tws-pair-status"><code>BT:TWS:PAIR:START</code>, <code>BT:TWS:PAIR:STATUS?</code><a class="headerlink" href="#bt-tws-pair-start-bt-tws-pair-status" title="Permanent link">&para;</a></h2>
+<p>Commands: <code>BT:TWS:PAIR:START</code>, <code>BT:TWS:PAIR:STATUS?</code></p>
+<p><code>BT:TWS:PAIR:START</code> drops a phone link, switches the capability on, starts the peer search and
+returns once the search runs (it holds the control interface for about 0.7 s). <code>ERR:PAIRED</code>:
+a peer link is already up; <code>ERR:MODULE</code>: the module refused a command, or an attempt is
+already running. <code>BT:TWS:PAIR:STATUS?</code> advances once a second, so the result shows up to a
+second after the link forms; a final value stays until the next start of a pairing, and
+<code>BT:TWS:REBOOT</code> resets it to <code>Idle</code>. <code>BT:TWS:INQ 0</code> aborts a running attempt. This pair of
+commands replaces <code>BT:TWS:PAIR</code> in host software.</p>
+<p><strong>Pairing states</strong></p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Idle</code></td>
+<td>No attempt since start, or reset by BT:TWS:REBOOT</td>
+</tr>
+<tr>
+<td><code>Inquiring</code></td>
+<td>The search runs</td>
+</tr>
+<tr>
+<td><code>OK</code></td>
+<td>The peer link reached Connected or Streaming</td>
+</tr>
+<tr>
+<td><code>NoPeerFound</code></td>
+<td>15 s passed without a peer; the search was stopped</td>
+</tr>
+<tr>
+<td><code>Error</code></td>
+<td>The module refused a command of the start sequence</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>BT:TWS:PAIR:START    -&gt;  BT:TWS:PAIR:START:OK
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>BT:TWS:PAIR:STATUS?  -&gt;  BT:TWS:PAIR:STATUS:Inquiring
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>BT:TWS:PAIR:STATUS?  -&gt;  BT:TWS:PAIR:STATUS:OK
+</code></pre></div>
+<h2 id="bt-tws-pair"><code>BT:TWS:PAIR</code><a class="headerlink" href="#bt-tws-pair" title="Permanent link">&para;</a></h2>
+<p>The same sequence as <code>BT:TWS:PAIR:START</code>, but the answer waits for the result: the control
+interface is blocked for up to 15 s, on both the USB and the UART link. Kept for compatibility;
+use <code>BT:TWS:PAIR:START</code>.</p>
+<p><strong>Pairing results</strong></p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>OK</code></td>
+<td>The peer link came up within 15 s</td>
+</tr>
+<tr>
+<td><code>AlreadyPaired</code></td>
+<td>The peer link was already up; nothing was done</td>
+</tr>
+<tr>
+<td><code>NoPeerFound</code></td>
+<td>15 s passed without a peer; the search was stopped</td>
+</tr>
+<tr>
+<td><code>Error</code></td>
+<td>The module refused a command of the sequence</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>BT:TWS:PAIR  -&gt;  BT:TWS:PAIR:OK
+</code></pre></div>
+<h2 id="bt-tws-repair"><code>BT:TWS:REPAIR</code><a class="headerlink" href="#bt-tws-repair" title="Permanent link">&para;</a></h2>
+<p>The software equivalent of the long button press of a commercial TWS speaker, and the command
+for a remembered peer that has become unreachable. In one action: the new fallback role is
+stored (<code>ERR:NVM</code> when that write fails, and nothing else is done), the phone links are
+dropped, the peer memory is wiped, the Bluetooth module is reset with the proper timing, and
+the role is applied, all without a restart of the amplifier. <code>OK</code> means queued: the sequence
+runs from the Bluetooth task in the next 4 to 6 s, during which the <code>BT:*</code> mirrors are stale.
+<code>ERR:BUSY</code> when a request is already pending. MuraLink's Start New Pairing uses it.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>BT:TWS:REPAIR 1  -&gt;  BT:TWS:REPAIR:OK
+</code></pre></div>
+<h2 id="bt-tws-reboot"><code>BT:TWS:REBOOT</code><a class="headerlink" href="#bt-tws-reboot" title="Permanent link">&para;</a></h2>
+<p>Applies a role immediately instead of at the next start: wipes the pairing, resets and
+re-powers the module and configures TWS for the role. <code>OK</code> means queued; the sequence takes
+4 to 6 s, during which the <code>BT:*</code> mirrors are stale. Does not change <code>BT:TWS:FALLBACKROLE</code>:
+set both when the role should survive a power cycle, or use <code>BT:TWS:REPAIR</code>. <code>ERR:BUSY</code> when
+a request is already pending.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>BT:TWS:REBOOT 2  -&gt;  BT:TWS:REBOOT:OK
+</code></pre></div>
+<h2 id="bt-tws-conn-bt-tws-disc"><code>BT:TWS:CONN</code>, <code>BT:TWS:DISC</code><a class="headerlink" href="#bt-tws-conn-bt-tws-disc" title="Permanent link">&para;</a></h2>
+<p>Commands: <code>BT:TWS:CONN</code>, <code>BT:TWS:DISC</code></p>
+<p><code>BT:TWS:DISC</code> drops the peer link and keeps the pairing, so the pair can come back without
+pairing again; the module does not reconnect on its own, <code>BT:TWS:CONN</code> does it. The firmware
+checks before it asks the module, because the module accepts a connect request even without a
+pairing and then does nothing: <code>ERR:DISABLED</code> with the capability off, <code>ERR:PAIRED</code> with the
+link already up, <code>ERR:NOPEER</code> without a remembered peer. <code>OK</code> means the request went to the
+module; the link comes up a few seconds later and shows in <code>BT:TWS:STAT?</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>BT:TWS:DISC  -&gt;  BT:TWS:DISC:OK
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>BT:TWS:CONN  -&gt;  BT:TWS:CONN:OK
+</code></pre></div>
+<h2 id="bt-tws-bond-del-bt-tws-unpair"><code>BT:TWS:BOND:DEL</code>, <code>BT:TWS:UNPAIR</code><a class="headerlink" href="#bt-tws-bond-del-bt-tws-unpair" title="Permanent link">&para;</a></h2>
+<p>Commands: <code>BT:TWS:BOND:DEL</code>, <code>BT:TWS:UNPAIR</code></p>
+<p><code>BT:TWS:UNPAIR</code> is <code>BT:TWS:DISC</code> followed by <code>BT:TWS:BOND:DEL</code>. After either, <code>BT:TWS:ROLE?</code>
+reads <code>Unknown</code> and <code>BT:TWS:STAT?</code> reports <code>-</code> for the peer. The capability stays on so that a
+later pairing does not need to switch it on. <code>OK</code> confirms that the module accepted the
+commands, not that the peer noticed.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>BT:TWS:UNPAIR  -&gt;  BT:TWS:UNPAIR:OK
+</code></pre></div>
+<h2 id="bt-tws-inq"><code>BT:TWS:INQ</code><a class="headerlink" href="#bt-tws-inq" title="Permanent link">&para;</a></h2>
+<p>Commands: <code>BT:TWS:INQ?</code>, <code>BT:TWS:INQ</code></p>
+<p><code>1</code> starts a search that connects to the first peer found and clears the scan list; <code>0</code> stops
+it, which also aborts a running <code>BT:TWS:PAIR:START</code>. The query is best effort: it tracks the
+searches the firmware started, and clears when the peer link comes up. A search the module
+starts on its own is not seen.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>BT:TWS:INQ 0  -&gt;  BT:TWS:INQ:OK
+</code></pre></div>
+<h2 id="bt-tws-refresh"><code>BT:TWS:REFRESH</code><a class="headerlink" href="#bt-tws-refresh" title="Permanent link">&para;</a></h2>
+<p>Asks the module for its capability, link state and peer record at once instead of waiting for
+the next polling cycle. <code>OK</code> confirms the questions were sent; the answers land within about
+1 s and show in <code>BT:TWS:STAT?</code>.</p>
+<h2 id="bt-tws-peerlist"><code>BT:TWS:PEERLIST?</code><a class="headerlink" href="#bt-tws-peerlist" title="Permanent link">&para;</a></h2>
+<p>The module keeps phone pairings and the TWS peer in one list; <code>istws</code> is <code>1</code> for the entry
+that is the current TWS peer. An empty memory answers <code>0</code>, so that nothing remembered is
+stated rather than inferred. The firmware asks the module and waits briefly for the list, so
+the answer takes a moment. <code>BT:TWS:PEERLIST:ERR:MODULE</code> when the module could not be asked.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>BT:TWS:PEERLIST?  -&gt;  BT:TWS:PEERLIST:2;0,4142DE0BCDAC,1,JP150;1,A1B2C3D4E5F6,0,Jan's phone
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>BT:TWS:PEERLIST?  -&gt;  BT:TWS:PEERLIST:0
+</code></pre></div>
+<h2 id="bt-tws-scan-bt-tws-scan-count-bt-tws-scan-item"><code>BT:TWS:SCAN?</code>, <code>BT:TWS:SCAN:COUNT?</code>, <code>BT:TWS:SCAN:ITEM?</code><a class="headerlink" href="#bt-tws-scan-bt-tws-scan-count-bt-tws-scan-item" title="Permanent link">&para;</a></h2>
+<p>Commands: <code>BT:TWS:SCAN?</code>, <code>BT:TWS:SCAN:COUNT?</code>, <code>BT:TWS:SCAN:ITEM?</code></p>
+<p>The list is cleared when a search starts and holds up to 8 entries; <code>seen</code> counts every
+well-formed hit of the search (up to 255), so <code>seen</code> above <code>kept</code> means peers were found and
+dropped for lack of space. <code>BT:TWS:SCAN?</code> returns the whole list in one line and stops
+appending when the line would overflow, so <code>COUNT?</code> plus <code>ITEM?</code> is the complete form.
+<code>ITEM?</code> answers <code>:ERR:RANGE</code> for an index at or past <code>kept</code> and <code>:ERR:PARAM</code> for a bad
+parameter; <code>f1</code> and <code>f2</code> are two fields of the module's report whose meaning the vendor does
+not document.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>BT:TWS:SCAN?         -&gt;  BT:TWS:SCAN:2;4142DE0BCDAC,-78,10,Secondary-AMP;AABBCCDDEEFF,-92,2,
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>BT:TWS:SCAN:COUNT?   -&gt;  BT:TWS:SCAN:COUNT:2,2
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>BT:TWS:SCAN:ITEM? 0  -&gt;  BT:TWS:SCAN:ITEM:4142DE0BCDAC,-78,10,Secondary-AMP,1,2
+</code></pre></div>
+<h2 id="bt-tws-scan-diag-bt-tws-peerdiag"><code>BT:TWS:SCAN:DIAG?</code>, <code>BT:TWS:PEERDIAG?</code><a class="headerlink" href="#bt-tws-scan-diag-bt-tws-peerdiag" title="Permanent link">&para;</a></h2>
+<p>Commands: <code>BT:TWS:SCAN:DIAG?</code>, <code>BT:TWS:PEERDIAG?</code></p>
+<p>Two parser diagnostics for support cases: how many report lines of the module arrived, how
+many were decoded, and the last line as raw hex (at most 64 bytes), because the module's lines
+can contain bytes that would corrupt a plain answer. Used when a search finds nothing
+(<code>BT:TWS:SCAN:ITEM? 0</code> answers <code>ERR:RANGE</code>) or when a streaming pair reports its role as
+<code>Unknown</code>. The counters reset when a search starts and when the module stops answering.</p>
+<h2 id="changes">Changes<a class="headerlink" href="#changes" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>26.10.1</strong>: added <code>BT:TWS:ROLE?</code>, <code>BT:TWS:STAT?</code>, <code>BT:TWS:PAIR:START</code>, <code>BT:TWS:PAIR:STATUS?</code>, <code>BT:TWS:INQ?</code>, <code>BT:TWS:INQ</code>, <code>BT:TWS:DISC</code>, <code>BT:TWS:CONN</code>, <code>BT:TWS:BOND:DEL</code>, <code>BT:TWS:REBOOT</code>, <code>BT:TWS:SCAN:COUNT?</code>, <code>BT:TWS:SCAN:ITEM?</code>, <code>BT:TWS:SCAN:DIAG?</code>, <code>BT:TWS:PEERDIAG?</code>, <code>BT:TWS:BOOTOUTCOME?</code>, <code>BT:TWS:PEERLIST?</code>, <code>BT:TWS:REPAIR</code>, <code>BT:TWS:REFRESH</code>, <code>BT:TWS:FALLBACKROLE?</code>, <code>BT:TWS:FALLBACKROLE</code>; removed <code>BT:BOOTROLE?</code>, <code>BT:BOOTROLE</code>.</li>
+<li><strong>26.6.2</strong> (oldest release documented): 9 commands.</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../bt/" class="md-footer__link md-footer__link--prev" aria-label="Previous: BT">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                BT
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../changes/" class="md-footer__link md-footer__link--next" aria-label="Next: Changes by release">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Changes by release
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      &copy; 2026 MURA LABS&reg;
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.indexes", "navigation.path", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.tabs.link", "content.code.copy", "toc.follow"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../../assets/js/mura-filter.js"></script>
+      
+    
+  </body>
+</html>

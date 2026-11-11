@@ -1,0 +1,148 @@
+# The living list of known issues. It renders the Known Issues page and the "fixed issues" part of
+# every release-notes page (macros known_issues() and fixed_in() in main.py).
+#
+# Rules
+# - Never delete an entry. An issue is closed by setting fixed_in and status: fixed.
+# - status: open | fixed | verify (fix released, bench confirmation pending) | wontfix (by design).
+# - boards: the PCB revisions the issue affects; firmware_from: the first firmware that shows it.
+# - Keep the wording at owner level; no internal identifiers beyond the KI number.
+
+issues:
+  - id: KI-11
+    title: Front LEDs show white or random colours on some PCB 1.4 modules
+    status: fixed
+    boards: ["1.4"]
+    firmware_from: "26.10.1"
+    reported: 2026-10-31
+    fixed_in: "26.11.0"
+    description: >-
+      On part of the first PCB 1.4 production batch the power LED, status LED and level meter
+      showed white or random colours after power-on instead of their patterns. Audio and the
+      control interface were not affected. The LED type used on PCB 1.4 is more sensitive to the
+      drive timing than the earlier type; firmware 26.11.0 drives the LEDs with the timing that
+      type specifies. A module delivered with firmware 26.10.1 keeps its bootloader and can still
+      show white LEDs while it is in update mode; the update itself is not affected.
+    workaround: null
+
+  - id: KI-10
+    title: Control bus guard can stay active after a SigmaStudio session
+    status: open
+    boards: ["1.4"]
+    firmware_from: "26.10.1"
+    reported: 2026-10-12
+    fixed_in: null
+    description: >-
+      After a SigmaStudio download through the USBi, the module can keep treating the DSP bus as busy
+      until it is reset, even with the USBi unplugged. DSP queries then answer ERROR, and an input or
+      power-mode change does not reach the DSP although the status LED follows it.
+    workaround: Reset or power-cycle the module after using the USBi.
+
+  - id: KI-09
+    title: The module does not know which DSP program it runs
+    status: open
+    boards: ["1.3", "1.4"]
+    firmware_from: "26.10.1"
+    reported: 2026-10-12
+    fixed_in: null
+    description: >-
+      The firmware keeps no record of the program written to the DSP boot memory, so MuraLink cannot
+      show it, and its update question cannot tell an own program from the default one.
+    workaround: null
+
+  - id: KI-08
+    title: A lone TWS unit does not reconnect the phone by itself
+    status: open
+    boards: ["1.3", "1.4"]
+    firmware_from: "26.9.0"
+    reported: 2026-09-15
+    fixed_in: null
+    description: >-
+      When a paired unit is switched on without its partner, it plays on its own, but the connection to
+      the phone is not restored automatically.
+    workaround: Connect from the phone's Bluetooth settings; the partner joins when it is switched on.
+
+  - id: KI-07
+    title: A setting changed right before a restart or an update could be lost
+    status: fixed
+    boards: ["1.3", "1.4"]
+    firmware_from: "26.7.0"
+    reported: 2026-10-12
+    fixed_in: "26.10.1"
+    description: >-
+      Settings are written a few seconds after a change. A restart, the entry into update mode or a
+      reset command that came within that time lost the change. Pending changes are now written first.
+    workaround: null
+
+  - id: KI-06
+    title: Wrong input after waking from sleep or standby
+    status: fixed
+    boards: ["1.4"]
+    firmware_from: "26.10.0"
+    reported: 2026-10-09
+    fixed_in: "26.10.1"
+    description: >-
+      The DSP of PCB 1.4 reloads its program on every wake, and the module re-sent the selected input
+      before the program was ready, so the DSP played its default source, the test tone. The input is
+      now sent once the DSP program is running.
+    workaround: null
+
+  - id: KI-05
+    title: External master clock is not supported
+    status: open
+    boards: ["1.3", "1.4"]
+    firmware_from: "26.6.2"
+    reported: 2026-08-25
+    fixed_in: null
+    description: >-
+      The module always runs from its internal master clock. On PCB 1.3 the DIP switch position has no
+      effect; on PCB 1.4 the firmware keeps the internal clock selected.
+    workaround: null
+
+  - id: KI-04
+    title: Brief digital noise when USB audio resumes after a long silence
+    status: open
+    boards: ["1.3", "1.4"]
+    firmware_from: "26.6.2"
+    reported: 2026-08-25
+    fixed_in: null
+    description: >-
+      After a longer silence on the USB input, a short burst of digital noise can be audible when the
+      stream resumes. It normally clears by itself within a few seconds.
+    workaround: null
+
+  - id: KI-03
+    title: Supply current reading is indicative only
+    status: fixed
+    boards: ["1.3", "1.4"]
+    firmware_from: "26.7.0"
+    reported: 2026-08-25
+    fixed_in: "26.10.1"
+    description: >-
+      Fixed on PCB 1.4, which measures with a dedicated power monitor. The PCB 1.3 reading is
+      unchanged and stays indicative; use an external meter where the figure matters.
+    workaround: null
+
+  - id: KI-02
+    title: Seconds of random level-meter colours at power-up
+    status: fixed
+    boards: ["1.3", "1.4"]
+    firmware_from: "26.6.2"
+    reported: 2026-10-09
+    fixed_in: "26.10.1"
+    description: >-
+      Before the firmware responded to anything, the level meter showed whatever its LEDs latched at
+      power-on, for up to six seconds, because the start-up waited for the DSP. The wait is gone.
+    workaround: null
+
+  - id: KI-01
+    title: TWS pairing sometimes unstable
+    status: verify
+    boards: ["1.3", "1.4"]
+    firmware_from: "26.6.2"
+    reported: 2026-08-25
+    fixed_in: "26.10.1"
+    description: >-
+      Pairing two units could fail, and an established pair could misbehave, because the pairing was
+      rebuilt at every start. The pairing is now remembered and reconnected. Bench confirmation on two
+      TWS-capable units is pending.
+    workaround: Reset the Secondary, or both units, for that power cycle.
