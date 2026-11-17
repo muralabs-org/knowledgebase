@@ -1,0 +1,256 @@
+/* MURA LABS theme for Material for MkDocs.
+   Tokens: petrol ink, cream panels, coral accent; Inter for text, JetBrains Mono for identifiers. */
+
+:root {
+  --mura-petrol: #0E2A33;
+  --mura-petrol-light: #1C4452;
+  --mura-ink: #14333D;
+  --mura-coral: #E84C30;
+  --mura-coral-ink: #B8391F;
+  --mura-cream: #F5F2EA;
+  --mura-cream-2: #FBF9F4;
+  --mura-line: #DDD8C9;
+  --mura-line-strong: #B7B0A0;
+  --mura-muted: #5A5A5A;
+  --mura-ok: #3D8568;
+  --mura-ok-bg: #E4F0EA;
+  --mura-warn: #8F5A0F;
+  --mura-warn-bg: #F7ECDA;
+  --mura-bad: #A32D2D;
+  --mura-bad-bg: #F6E3E1;
+  --mura-info-bg: #E6EEF0;
+  --mura-on-deep: #FFFFFF;
+}
+
+[data-md-color-scheme="default"] {
+  /* The header is Material's white primary (mkdocs.yml); petrol stays the brand ink below. */
+  --md-accent-fg-color: var(--mura-coral);
+  --md-accent-fg-color--transparent: rgba(232, 76, 48, 0.1);
+  --md-default-fg-color: var(--mura-ink);
+  --md-default-fg-color--light: #3C5560;
+  --md-default-fg-color--lighter: #6B7F87;
+  --md-default-fg-color--lightest: #D8DEE0;
+  --md-typeset-a-color: var(--mura-coral-ink);
+  --md-code-bg-color: var(--mura-cream);
+  --md-code-fg-color: var(--mura-ink);
+  --md-typeset-table-color: var(--mura-line);
+  --md-footer-bg-color: var(--mura-petrol);
+  --md-footer-bg-color--dark: #0A1F26;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: var(--mura-petrol);
+  --md-primary-fg-color--light: var(--mura-petrol-light);
+  --md-primary-fg-color--dark: #0A1F26;
+  --md-accent-fg-color: #F06A4F;
+  --md-accent-fg-color--transparent: rgba(240, 106, 79, 0.12);
+  --md-default-bg-color: #0D1C21;
+  --md-default-fg-color: #E8E3D6;
+  --md-default-fg-color--light: #C9C4B8;
+  --md-default-fg-color--lighter: #A8A89E;
+  --md-default-fg-color--lightest: #26404A;
+  --md-typeset-a-color: #F48B74;
+  --md-code-bg-color: #142930;
+  --md-code-fg-color: #E8E3D6;
+  --md-typeset-table-color: #26404A;
+  --md-footer-bg-color: #0A1F26;
+  --md-footer-bg-color--dark: #071519;
+  --mura-cream: #142930;
+  --mura-cream-2: #11232A;
+  --mura-line: #26404A;
+  --mura-line-strong: #3A5763;
+  --mura-muted: #A8A89E;
+  --mura-coral: #F06A4F;
+  --mura-coral-ink: #F48B74;
+  --mura-ok: #6FBF98;
+  --mura-ok-bg: #16352B;
+  --mura-warn: #E3A650;
+  --mura-warn-bg: #3A2B12;
+  --mura-bad: #E88080;
+  --mura-bad-bg: #3D1C1C;
+  --mura-info-bg: #17313A;
+  --mura-on-deep: #0D1C21;
+}
+
+/* ---- header: a white bar with the section tabs and a hairline under them (under the header where the tabs are hidden);
+        the dark scheme keeps petrol and shows the logo in white ---- */
+[data-md-color-scheme="default"] .md-tabs { border-bottom: 1px solid var(--mura-line); }
+@media screen and (max-width: 76.1875em) { [data-md-color-scheme="default"] .md-header { border-bottom: 1px solid var(--mura-line); } }
+[data-md-color-scheme="slate"] .md-header__button.md-logo img { filter: brightness(0) invert(1); }
+
+/* ---- typography ---- */
+.md-typeset { font-size: 0.78rem; line-height: 1.65; }
+.md-typeset h1 { font-weight: 700; color: var(--md-default-fg-color); letter-spacing: -0.01em; margin-bottom: 0.6em; }
+.md-typeset h1::after { content: ""; display: block; width: 56px; height: 3px; background: var(--mura-coral); margin-top: 0.45em; }
+.md-typeset h2 { font-weight: 700; margin-top: 2.2em; }
+.md-typeset h3 { font-weight: 600; }
+.md-typeset code { font-size: 0.86em; border-radius: 3px; }
+.md-header__topic:first-child { font-weight: 700; }
+.md-header__button.md-logo img { height: 1.2rem; width: auto; }
+
+/* ---- applies-to badges and chips ---- */
+.md-typeset p.applies { display: flex; flex-wrap: wrap; gap: 6px; margin: -0.2em 0 1em; }
+.md-typeset .badge {
+  display: inline-block; font-family: var(--md-code-font-family); font-size: 0.6rem; font-weight: 700;
+  letter-spacing: 0.05em; text-transform: uppercase; padding: 0.15em 0.55em; border-radius: 3px;
+  border: 1px solid var(--mura-line-strong); color: var(--md-default-fg-color); background: var(--mura-cream-2); line-height: 1.6;
+}
+.md-typeset .badge.rev { background: var(--mura-info-bg); border-color: transparent; }
+.md-typeset .badge.since { background: var(--mura-coral); color: var(--mura-on-deep); border-color: transparent; }
+.md-typeset .badge.gen { background: var(--mura-ok-bg); color: var(--mura-ok); border-color: transparent; }
+.md-typeset h2 .badge, .md-typeset h3 .badge { vertical-align: 0.15em; margin-left: 0.3em; font-size: 0.55rem; }
+.md-typeset .chip {
+  display: inline-block; font-size: 0.58rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 0.1em 0.5em; border-radius: 3px; white-space: nowrap; vertical-align: 0.1em; line-height: 1.7;
+}
+.md-typeset .chip.ok { color: var(--mura-ok); background: var(--mura-ok-bg); }
+.md-typeset .chip.warn { color: var(--mura-warn); background: var(--mura-warn-bg); }
+.md-typeset .chip.bad { color: var(--mura-bad); background: var(--mura-bad-bg); }
+.md-typeset .chip.new { color: var(--md-default-fg-color); background: var(--mura-info-bg); }
+.md-typeset .chip.dim { color: var(--mura-muted); border: 1px solid var(--mura-line-strong); }
+
+/* ---- tables ---- */
+.md-typeset table:not([class]) { font-size: 0.72rem; border: 1px solid var(--mura-line); border-radius: 4px; }
+.md-typeset table:not([class]) th {
+  background: var(--mura-petrol); color: #FFFFFF; font-weight: 600; font-size: 0.6rem;
+  letter-spacing: 0.06em; text-transform: uppercase; white-space: nowrap;
+}
+.md-typeset table:not([class]) tbody tr:nth-child(even) { background: var(--mura-cream-2); }
+.md-typeset table:not([class]) tbody tr:hover { background: var(--mura-cream); box-shadow: none; }
+.md-typeset td.mono, .md-typeset .mono { font-family: var(--md-code-font-family); font-size: 0.9em; }
+
+/* ---- admonitions in brand colours ---- */
+.md-typeset .admonition, .md-typeset details { font-size: 0.72rem; border-width: 0 0 0 4px; border-radius: 0 4px 4px 0; box-shadow: none; background: var(--mura-cream-2); }
+.md-typeset .admonition.note, .md-typeset details.note { border-color: var(--mura-coral); }
+.md-typeset .note > .admonition-title, .md-typeset .note > summary { background: transparent; color: var(--mura-coral-ink); }
+.md-typeset .note > .admonition-title::before, .md-typeset .note > summary::before { background-color: var(--mura-coral-ink); }
+.md-typeset .admonition.tip, .md-typeset .admonition.info { border-color: var(--mura-petrol); }
+.md-typeset .tip > .admonition-title, .md-typeset .info > .admonition-title { background: transparent; color: var(--md-default-fg-color); }
+.md-typeset .tip > .admonition-title::before, .md-typeset .info > .admonition-title::before { background-color: var(--md-default-fg-color); }
+.md-typeset .admonition.warning { border-color: var(--mura-warn); }
+.md-typeset .warning > .admonition-title { background: transparent; color: var(--mura-warn); }
+.md-typeset .warning > .admonition-title::before { background-color: var(--mura-warn); }
+.md-typeset .admonition.danger { border-color: var(--mura-bad); }
+.md-typeset .danger > .admonition-title { background: transparent; color: var(--mura-bad); }
+.md-typeset .danger > .admonition-title::before { background-color: var(--mura-bad); }
+/* "coming" is the reader-facing placeholder of a picture, drawing or table still to come (OPEN_ITEMS.md) */
+.md-typeset .admonition.coming { border-color: var(--mura-petrol); border-style: dashed; background: var(--mura-cream-2); }
+.md-typeset .coming > .admonition-title { background: transparent; color: var(--md-default-fg-color); }
+.md-typeset .coming > .admonition-title::before { background-color: var(--md-default-fg-color); -webkit-mask-image: var(--md-admonition-icon--info); mask-image: var(--md-admonition-icon--info); }
+/* "draft" marked text to be resolved before publication; no page carries one since 2026-11-04 */
+.md-typeset .admonition.draft { border-color: var(--mura-coral); border-style: dashed; background: var(--mura-warn-bg); }
+.md-typeset .draft > .admonition-title { background: transparent; color: var(--mura-coral-ink); }
+.md-typeset .draft > .admonition-title::before { background-color: var(--mura-coral-ink); -webkit-mask-image: var(--md-admonition-icon--warning); mask-image: var(--md-admonition-icon--warning); }
+
+/* ---- content tabs (board revisions) ---- */
+.md-typeset .tabbed-labels > label { font-weight: 600; }
+.md-typeset .tabbed-set > input:checked + .tabbed-labels > label,
+.md-typeset .tabbed-labels > label:hover { color: var(--mura-coral-ink); }
+
+/* ---- known issues ---- */
+.md-typeset ul.issues { list-style: none; margin: 0.6em 0 1.2em; padding: 0; display: grid; gap: 10px; }
+.md-typeset ul.issues > li { border: 1px solid var(--mura-line); border-radius: 6px; padding: 10px 14px; margin: 0; }
+.md-typeset ul.issues h3 { margin: 0 0 0.3em; font-size: 0.82rem; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
+.md-typeset ul.issues .id { font-family: var(--md-code-font-family); color: var(--mura-muted); font-size: 0.68rem; font-weight: 600; }
+.md-typeset ul.issues p { margin: 0.25em 0 0; font-size: 0.74rem; }
+.md-typeset ul.issues .issue-meta { color: var(--mura-muted); font-size: 0.66rem; }
+
+/* ---- release card (home) ---- */
+.md-typeset .relcard { border: 1px solid var(--mura-line); border-radius: 8px; background: var(--mura-cream); padding: 14px 18px; max-width: 420px; }
+.md-typeset .relcard .gl { font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mura-muted); font-weight: 700; margin: 0 0 4px; }
+.md-typeset .relcard .ver { font-family: var(--md-code-font-family); font-size: 1.5rem; font-weight: 600; margin: 0; color: var(--md-default-fg-color); }
+.md-typeset .relcard dl { display: grid; grid-template-columns: auto 1fr; gap: 3px 12px; margin: 10px 0 0; font-size: 0.72rem; }
+.md-typeset .relcard dt { color: var(--mura-muted); font-weight: 400; }
+.md-typeset .relcard dd { margin: 0; font-family: var(--md-code-font-family); }
+.md-typeset .relcard .relcard-links { margin: 10px 0 0; font-size: 0.72rem; }
+
+/* ---- PDF editions (docs/data/documents.yml): the download line under the applies-to line, the frame with the list (home) ---- */
+.md-typeset p.pdfline { display: flex; flex-wrap: wrap; align-items: center; gap: 0.15em 0.7em; margin: -0.35em 0 1.2em; font-size: 0.7rem; }
+.md-typeset p.pdfline a, .md-typeset ul.pdflist a { display: inline-flex; align-items: center; gap: 0.4em; font-weight: 600; }
+.md-typeset p.pdfline svg, .md-typeset ul.pdflist svg { width: 1.05rem; height: 1.05rem; fill: currentColor; flex-shrink: 0; }
+.md-typeset p.pdfline .meta, .md-typeset ul.pdflist .meta { color: var(--mura-muted); font-size: 0.62rem; }
+.md-typeset .pdfbox { border: 1px solid var(--mura-line); border-radius: 8px; background: var(--mura-cream); padding: 14px 18px; }
+.md-typeset .pdfbox h2 { margin: 0 0 0.35em; font-size: 0.95rem; }
+.md-typeset .pdfbox p { margin: 0.35em 0 0; font-size: 0.72rem; }
+.md-typeset ul.pdflist { list-style: none; margin: 0.8em 0 0; padding: 0; font-size: 0.72rem; }
+.md-typeset ul.pdflist > li {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 0 0.8em;
+  margin: 0; padding: 0.4em 0; border-top: 1px solid var(--mura-line);
+}
+.md-typeset ul.pdflist .meta { white-space: nowrap; }
+.md-typeset td.nowrap { white-space: nowrap; }
+.md-typeset td .file { color: var(--mura-muted); font-size: 0.85em; }   /* the file name under a document's title (Downloads) */
+
+/* ---- home page: the line under the title; the text and the PDF frame beside the board picture ---- */
+.md-typeset p.sitemeta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4em 1.1em; margin: -0.2em 0 1.4em; color: var(--mura-muted); font-size: 0.62rem; }
+.md-typeset p.sitemeta .changed { display: inline-flex; align-items: center; gap: 0.35em; white-space: nowrap; }
+.md-typeset p.sitemeta svg { width: 0.8rem; height: 0.8rem; fill: currentColor; }
+.md-typeset p.sitemeta .by::before { content: "\00b7"; margin-right: 0.35em; }
+.md-typeset p.sitemeta a.report {
+  display: inline-flex; align-items: center; gap: 0.35em; padding: 0.2em 0.75em; border: 1px solid var(--mura-line-strong);
+  border-radius: 0.75rem; color: var(--md-default-fg-color); font-weight: 600; white-space: nowrap;
+}
+.md-typeset p.sitemeta a.report:hover { border-color: var(--mura-coral); color: var(--mura-coral-ink); }
+.md-typeset .home-top { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 1.6rem; align-items: start; margin: 0 0 1.8em; }
+.md-typeset .home-top__text > p:first-child { margin-top: 0; }
+.md-typeset .home-top__text > .pdfbox { margin-top: 1.4em; }
+.md-typeset .home-top figure.screenshot { margin: 0 auto; }
+.md-typeset .home-top figure.screenshot br { display: none; }   /* the line break Markdown leaves before the caption */
+@media screen and (max-width: 44.9375em) { .md-typeset .home-top { grid-template-columns: minmax(0, 1fr); } }   /* phones: text, frame, picture */
+
+/* ---- grid cards: Material's own, toned to the brand ---- */
+.md-typeset .grid.cards > ul > li { border-color: var(--mura-line); border-radius: 6px; }
+.md-typeset .grid.cards > ul > li:hover { border-color: var(--mura-line-strong); box-shadow: none; background: var(--mura-cream-2); }
+.md-typeset .grid.cards > ul > li hr { border-color: var(--mura-line); }
+
+/* ---- LED swatches in tables ---- */
+.md-typeset .led { display: inline-block; width: 11px; height: 11px; border-radius: 50%; vertical-align: -1px; margin-right: 6px; border: 1px solid rgba(0, 0, 0, 0.15); }
+
+/* ---- footer ---- */
+.md-footer-meta { font-size: 0.6rem; }
+
+/* ---- header filter: product and PCB revision (overrides/partials/mura-filter.html, assets/js/mura-filter.js) ---- */
+.mura-filter { display: flex; align-items: center; gap: 0.3rem; flex-shrink: 0; margin: 0 0.4rem 0 0.2rem; }
+.mura-filter__field {
+  display: inline-flex; align-items: center; gap: 0.25rem; height: 1.5rem; padding: 0 0.3rem 0 0.55rem;
+  border: 1px solid var(--mura-line-strong); border-radius: 0.75rem; color: inherit; cursor: pointer;
+}
+[data-md-color-scheme="slate"] .mura-filter__field { border-color: rgba(255, 255, 255, 0.35); }
+.mura-filter__name { font-size: 0.5rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.75; }
+.mura-filter__select {
+  appearance: auto; -webkit-appearance: auto; background: transparent; color: inherit; border: 0; padding: 0;
+  font: inherit; font-size: 0.65rem; font-weight: 600; cursor: pointer; outline-color: var(--md-accent-fg-color);
+}
+.mura-filter__select option { color: var(--md-default-fg-color); background: var(--md-default-bg-color); }
+@media screen and (max-width: 44.9375em) {
+  .mura-filter { gap: 0.15rem; margin: 0 0.1rem 0 0; }
+  .mura-filter__field { padding: 0 0.15rem 0 0.4rem; }
+  .mura-filter__name { font-size: 0.45rem; }
+  .mura-filter__select { font-size: 0.6rem; }
+}
+
+/* ---- the last change and the "does not apply" notice in the applies-to line ---- */
+.md-typeset p.applies .changed {
+  display: inline-flex; align-items: center; gap: 0.35em; margin-left: auto; color: var(--mura-muted);
+  font-size: 0.62rem; white-space: nowrap;
+}
+.md-typeset p.applies .changed svg { width: 0.8rem; height: 0.8rem; fill: currentColor; }
+.md-typeset p.applies .changed .by::before { content: "\00b7"; margin-right: 0.35em; }
+@media screen and (max-width: 44.9375em) { .md-typeset p.applies .changed { margin-left: 0; } }
+.md-typeset p.applies .mura-mismatch {
+  display: none; flex-basis: 100%; margin-top: 0.3em; padding: 0.4em 0.7em; border-left: 3px solid var(--mura-warn);
+  background: var(--mura-warn-bg); color: var(--mura-warn); font-size: 0.68rem; font-weight: 600;
+}
+/* the repository link shrinks to its content, so the site name beside the filter is not cut (Material reserves 11.7rem) */
+.md-header__source { width: auto; }
+/* on phones the selectors sit at the top of the navigation drawer (mura-filter.js copies them there) */
+.mura-filter--drawer { display: none; margin: 0.6rem 0.8rem 0.2rem; }
+@media screen and (max-width: 59.9375em) {
+  .md-header .mura-filter { display: none; }
+  .mura-filter--drawer { display: flex; }
+}
+
+/* ---- screenshots (figure.screenshot, MuraLink pictures rendered by the application's screenshot run) ---- */
+.md-typeset figure.screenshot { margin: 1em auto 1.6em; max-width: 100%; }
+.md-typeset figure.screenshot img { border: 1px solid var(--mura-line); border-radius: 6px; box-shadow: 0 2px 12px rgba(14, 42, 51, 0.08); }
+.md-typeset figure.screenshot figcaption { font-size: 0.66rem; color: var(--mura-muted); margin: 0.5em 0 0; max-width: none; }
